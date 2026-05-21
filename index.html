@@ -12,55 +12,91 @@
 <meta name="theme-color" content="#0a0604">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Lora:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+/*  ============================================================
+    AI WILL · Purcell Ventures continuity-document workshop
+    -----------------------------------------------------------
+    PV brand zone (warm dark + brass + ink). Treated as a
+    SERIOUS BUSINESS-CONTINUITY INSTRUMENT — not playful.
+    Estate-document gravitas, but warm + accessible since the
+    target user is a 60+ small-business owner.
+    ============================================================ */
   :root {
-    --bg: #0a0604; --bg2: #16110b; --card: #1b1510;
+    --bg: #0a0604; --bg2: #14100a; --bg3: #1b1510;
+    --card: #1b1510; --card-light: #221b12;
     --border: #2e2820; --border-light: #3a342a;
     --text: #f5f0e0; --text-muted: #b6a98e; --text-light: #847b69;
-    --accent: #c2a173; --accent-bright: #e8b968; --intrusion: #e54a28;
+    --brass: #c2a173; --brass-bright: #e8b968; --brass-deep: #8b6a3a;
+    --accent: var(--brass); --accent-bright: var(--brass-bright);
+    --intrusion: #e54a28;
+
+    --display:'Cinzel', Georgia, serif;
+    --body:'DM Sans', system-ui, sans-serif;
+    --reading:'Lora', Georgia, serif;
+    --mono:'JetBrains Mono', monospace;
   }
   * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: Inter, system-ui, sans-serif; line-height: 1.55; -webkit-font-smoothing: antialiased; }
-  .wrap { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
-  .serif { font-family: 'Cinzel', Georgia, serif; }
-  .lora { font-family: 'Lora', Georgia, serif; }
-  .kicker { font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin: 0 0 14px; }
-  h1.title { font-family: 'Cinzel', Georgia, serif; font-size: clamp(36px, 5vw, 52px); font-weight: 700; margin: 0 0 14px; line-height: 1.05; }
-  p.lead { font-size: 18px; color: var(--text-muted); max-width: 640px; line-height: 1.65; margin: 0 0 32px; }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 24px; margin-bottom: 18px; }
-  .section-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
-  .section-num { font-size: 11px; font-weight: 700; letter-spacing: .14em; color: var(--accent); text-transform: uppercase; }
-  .section-title { font-family: 'Cinzel', Georgia, serif; font-size: 22px; margin: 0; }
-  label.q-label { display: block; font-size: 14px; color: var(--text); margin: 14px 0 6px; font-weight: 500; }
-  label.q-label .q-hint { display: block; font-size: 12px; color: var(--text-light); font-weight: 400; margin-top: 2px; }
+  html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: var(--body); font-weight: 400; line-height: 1.55; -webkit-font-smoothing: antialiased; font-size: 16px; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 36px 28px 80px; }
+  .serif { font-family: var(--display); }
+  .lora { font-family: var(--reading); }
+  .doc-strip {
+    border-top: 4px solid var(--brass);
+    padding-top: 18px;
+    margin-bottom: 18px;
+    display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap;
+    font-family: var(--mono); font-weight: 500;
+    font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--text-light);
+  }
+  .doc-strip span:first-child { color: var(--brass-bright); }
+  .kicker { font-family: var(--mono); font-weight: 500; font-size: 11px; letter-spacing: .26em; text-transform: uppercase; color: var(--brass); margin: 0 0 12px; display: inline-block; border: 1.5px solid var(--brass-deep); padding: 4px 10px; }
+  h1.title { font-family: var(--display); font-weight: 700; font-size: clamp(48px, 7vw, 80px); margin: 0 0 16px; line-height: 0.95; letter-spacing: 0.005em; }
+  p.lead { font-size: 17px; color: var(--text-muted); max-width: 640px; line-height: 1.6; margin: 0 0 36px; }
+  .card { background: var(--card); border: 1px solid var(--border); border-left: 4px solid var(--brass-deep); border-radius: 0; padding: 28px 32px; margin-bottom: 18px; position: relative; }
+  .card::before {
+    content:""; position: absolute; top: 14px; right: 18px;
+    width: 32px; height: 4px; background: var(--brass);
+  }
+  .section-head { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+  .section-num { font-family: var(--mono); font-weight: 500; font-size: 10.5px; letter-spacing: .26em; color: var(--brass-bright); text-transform: uppercase; }
+  .section-title { font-family: var(--display); font-weight: 600; font-size: 24px; margin: 0; color: var(--text); letter-spacing: 0.005em; }
+  label.q-label { display: block; font-family: var(--body); font-size: 14.5px; color: var(--text); margin: 18px 0 8px; font-weight: 500; }
+  label.q-label .q-hint { display: block; font-family: var(--body); font-style: italic; font-size: 12.5px; color: var(--text-light); font-weight: 400; margin-top: 3px; }
   textarea, input[type=text] {
-    width: 100%; padding: 11px 13px;
+    width: 100%; padding: 11px 14px;
     background: var(--bg2); color: var(--text);
-    border: 1px solid var(--border-light); border-radius: 8px;
-    font-family: 'Lora', Georgia, serif; font-size: 15px;
+    border: 1px solid var(--border-light); border-radius: 0;
+    font-family: var(--reading); font-size: 16px; line-height: 1.55;
     outline: none;
   }
-  textarea { min-height: 70px; resize: vertical; }
-  textarea:focus, input:focus { border-color: var(--accent); }
-  .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
-  .meta-grid label { font-size: 11px; font-weight: 700; color: var(--text-light); text-transform: uppercase; letter-spacing: .12em; }
-  .btn { appearance: none; border: none; cursor: pointer; padding: 14px 24px; border-radius: 8px; font-family: inherit; font-size: 15px; font-weight: 700; letter-spacing: .04em; transition: transform 80ms; }
-  .btn:active { transform: translateY(1px) scale(.99); }
-  .btn-primary { background: var(--accent); color: var(--bg); }
-  .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border-light); }
-  .actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 30px 0 18px; }
-  .progress { background: var(--bg2); border: 1px solid var(--border); border-radius: 999px; height: 8px; overflow: hidden; margin: 14px 0 24px; }
-  .progress > div { height: 100%; background: var(--accent); transition: width 160ms; }
-  .progress-text { font-size: 12px; color: var(--text-light); margin-bottom: 12px; }
-  .output { background: #fff; color: #14110b; margin-top: 32px; border-radius: 0; }
-  .output .article { padding: 48px clamp(24px, 6vw, 72px); font-family: 'Lora', Georgia, serif; font-size: 16px; line-height: 1.7; }
-  .output h1 { font-family: 'Cinzel', Georgia, serif; font-size: 38px; margin: 0 0 6px; }
-  .output h2 { font-family: 'Cinzel', Georgia, serif; font-size: 22px; margin: 30px 0 8px; padding-bottom: 4px; border-bottom: 2px solid #b9aa7a; }
-  .output h3 { font-family: 'Cinzel', Georgia, serif; font-size: 16px; margin: 22px 0 4px; color: #6b5e3f; }
-  .output .biz-line { font-size: 14px; color: #5d564a; margin-bottom: 22px; font-style: italic; }
-  .output .footer { margin-top: 28px; padding-top: 16px; border-top: 1px solid #ddd; font-size: 12px; color: #888; }
-  .output-actions { display: flex; gap: 10px; padding: 18px 22px; background: #ecebe5; flex-wrap: wrap; }
+  textarea { min-height: 80px; resize: vertical; }
+  textarea:focus, input:focus { border-color: var(--brass); box-shadow: 0 0 0 2px rgba(194, 161, 115, 0.18); }
+  textarea::placeholder, input::placeholder { color: var(--text-light); font-style: italic; }
+  .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+  .meta-grid label { font-family: var(--mono); font-weight: 500; font-size: 10px; font-weight: 700; color: var(--brass); text-transform: uppercase; letter-spacing: .22em; margin-bottom: 6px; display: block; }
+  .btn { appearance: none; border: none; cursor: pointer; padding: 13px 24px; border-radius: 0; font-family: var(--mono); font-weight: 500; font-size: 11.5px; letter-spacing: .24em; text-transform: uppercase; transition: background 120ms; }
+  .btn-primary { background: var(--brass); color: var(--bg); }
+  .btn-primary:hover { background: var(--brass-bright); }
+  .btn-ghost { background: transparent; color: var(--text); border: 1.5px solid var(--brass-deep); }
+  .btn-ghost:hover { background: var(--brass-deep); color: var(--bg); }
+  .actions { display: flex; gap: 12px; flex-wrap: wrap; margin: 32px 0 22px; padding-top: 22px; border-top: 1px dashed var(--border); }
+  .progress { background: var(--bg2); border: 1px solid var(--border); border-radius: 0; height: 8px; overflow: hidden; margin: 14px 0 24px; position: relative; }
+  .progress::after {
+    content:""; position:absolute; inset: 0;
+    background-image: repeating-linear-gradient(90deg, transparent 0, transparent 9%, rgba(194, 161, 115, 0.18) 9%, rgba(194, 161, 115, 0.18) 10%);
+  }
+  .progress > div { height: 100%; background: var(--brass); transition: width 160ms; position: relative; z-index: 1; }
+  .progress-text { font-family: var(--mono); font-weight: 500; font-size: 11px; color: var(--brass-bright); margin-bottom: 12px; letter-spacing: 0.12em; text-transform: uppercase; }
+  .output { background: #faf5e9; color: #14110b; margin-top: 32px; border-radius: 0; box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+  .output .article { padding: 56px clamp(28px, 6vw, 80px); font-family: var(--reading); font-size: 16.5px; line-height: 1.75; }
+  .output h1 { font-family: var(--display); font-weight: 700; font-size: 42px; margin: 0 0 8px; line-height: 1.05; }
+  .output h2 { font-family: var(--display); font-weight: 600; font-size: 22px; margin: 32px 0 10px; padding-bottom: 6px; border-bottom: 2px solid #b9aa7a; }
+  .output h3 { font-family: var(--display); font-weight: 600; font-size: 16px; margin: 22px 0 6px; color: #6b5e3f; letter-spacing: 0.02em; }
+  .output .biz-line { font-family: var(--reading); font-style: italic; font-size: 15px; color: #5d564a; margin-bottom: 24px; }
+  .output .footer { margin-top: 32px; padding-top: 16px; border-top: 1px solid #ddd; font-family: var(--mono); font-size: 10.5px; color: #888; letter-spacing: 0.14em; text-transform: uppercase; }
+  .output-actions { display: flex; gap: 10px; padding: 20px 24px; background: #ecebe5; flex-wrap: wrap; }
   @media print {
     body { background: #fff !important; color: #14110b !important; padding: 0; }
     .wrap > *:not(.output) { display: none !important; }
@@ -68,15 +104,20 @@
     .output-actions { display: none; }
     .output .article { padding: 0; }
   }
-  .footer-note { font-size: 13px; color: var(--text-light); text-align: center; margin-top: 36px; }
-  .save-toast { position: fixed; bottom: 24px; right: 24px; background: var(--card); border: 1px solid var(--accent); color: var(--accent-bright); padding: 10px 18px; border-radius: 8px; font-size: 13px; font-weight: 600; opacity: 0; transition: opacity 200ms; pointer-events: none; z-index: 200; box-shadow: 0 4px 16px rgba(0,0,0,0.4); }
+  .footer-note { font-family: var(--mono); font-weight: 500; font-size: 11px; color: var(--text-light); text-align: center; margin-top: 36px; padding-top: 22px; border-top: 1px solid var(--border); letter-spacing: 0.16em; text-transform: uppercase; }
+  .credit-line { display: block; font-family: var(--mono); font-weight: 700; font-size: 9px; letter-spacing: 0.42em; color: var(--text-light); margin-top: 14px; opacity: 0.7; }
+  .save-toast { position: fixed; bottom: 24px; right: 24px; background: var(--card); border: 1px solid var(--brass); color: var(--brass-bright); padding: 12px 20px; border-radius: 0; font-family: var(--mono); font-weight: 700; font-size: 11px; letter-spacing: 0.2em; opacity: 0; transition: opacity 200ms; pointer-events: none; z-index: 200; box-shadow: 0 4px 16px rgba(0,0,0,0.4); text-transform: uppercase; }
   .save-toast.show { opacity: 1; }
 </style>
 </head>
 <body>
 <main class="wrap">
+  <div class="doc-strip">
+    <span>Purcell Ventures · Continuity Document No. 01</span>
+    <span>Anno MMXXVI · Acworth GA</span>
+  </div>
   <p class="kicker">For small-business owners</p>
-  <h1 class="title">AI Will.</h1>
+  <h1 class="title">AI Will</h1>
   <p class="lead">
     A 30-minute interview that generates an operational continuity document for your business — so the work keeps running if you can&apos;t. Free for owners over 60. Bring your bookkeeper or spouse. Answer plainly. Print the result. Put it where someone can find it.
   </p>
@@ -112,7 +153,8 @@
     <div class="article" id="article"></div>
   </div>
 
-  <p class="footer-note">AI Will v0.1 · saves locally · a Purcell Ventures community-service tool · for the businesses that don&apos;t have a Plan B</p>
+  <p class="footer-note">AI Will v0.1 · saves locally · a community-service tool · for businesses that don&apos;t have a Plan B
+    <span class="credit-line">— PURCELLVENTURES.CO —</span></p>
 </main>
 <div class="save-toast" id="save-toast">✓ Saved</div>
 
