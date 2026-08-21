@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>AI Will, Business Continuity Document Generator | Elijah Purcell</title>
 <meta name="description" content="A 30-minute interview that generates a continuity document so a small business keeps running without its owner. By Elijah Purcell, Purcell Ventures.">
-<meta property="og:title" content="AI Will — Business Continuity Document Generator">
+<meta property="og:title" content="AI Will, Business Continuity Document Generator">
 <meta property="og:description" content="A 30-minute interview that generates a continuity document so a small business keeps running without its owner. By Elijah Purcell, Purcell Ventures.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://thebigjah.github.io/ai-will/">
@@ -18,7 +18,7 @@
     AI WILL · Purcell Ventures continuity-document workshop
     -----------------------------------------------------------
     PV brand zone (warm dark + brass + ink). Treated as a
-    SERIOUS BUSINESS-CONTINUITY INSTRUMENT — not playful.
+    SERIOUS BUSINESS-CONTINUITY INSTRUMENT, not playful.
     Estate-document gravitas, but warm + accessible since the
     target user is a 60+ small-business owner.
     ============================================================ */
@@ -121,7 +121,7 @@
   <p class="kicker">For small-business owners</p>
   <h1 class="title">AI Will</h1>
   <p class="lead">
-    A 30-minute interview that generates an operational continuity document for your business — so the work keeps running if you can&apos;t. Free for owners over 60. Bring your bookkeeper or spouse. Answer plainly. Print the result. Put it where someone can find it.
+    A 30-minute interview that generates an operational continuity document for your business, so the work keeps running if you can&apos;t. Free for owners over 60. Bring your bookkeeper or spouse. Answer plainly. Print the result. Put it where someone can find it.
   </p>
 
   <div class="card">
@@ -156,7 +156,7 @@
   </div>
 
   <p class="footer-note">AI Will v0.1 · saves locally · a community-service tool · for businesses that don&apos;t have a Plan B
-    <span class="credit-line">— PURCELLVENTURES.CO —</span></p>
+    <span class="credit-line">, PURCELLVENTURES.CO,</span></p>
 </main>
 <div class="save-toast" id="save-toast">✓ Saved</div>
 
@@ -215,7 +215,7 @@ const SECTIONS = [
     qs: [
       { id: 'top-clients', q: 'Top 10 customers / accounts by revenue (last 12 months).', hint: 'Name, contact, what they buy, how often.' },
       { id: 'recurring', q: 'How much of revenue is recurring vs. one-time?', hint: 'Subscriptions, retainers, contracts.' },
-      { id: 'collections', q: 'Anyone currently owe you money? How much, how old?', hint: 'AR aging — who should be chased first.' },
+      { id: 'collections', q: 'Anyone currently owe you money? How much, how old?', hint: 'AR aging, who should be chased first.' },
       { id: 'pipeline', q: 'What new business is in the pipeline that someone needs to follow up on?', hint: 'Proposals out, conversations in progress.' },
     ],
   },
@@ -301,7 +301,7 @@ function renderSections() {
         <label class="q-label" for="q-${q.id}">${escapeHtml(q.q)}
           <span class="q-hint">${escapeHtml(q.hint)}</span>
         </label>
-        <textarea id="q-${q.id}" data-q="${q.id}" placeholder="(plain words — sentences are fine)">${v}</textarea>
+        <textarea id="q-${q.id}" data-q="${q.id}" placeholder="(plain words, sentences are fine)">${v}</textarea>
       `;
     });
     card.innerHTML = body;
@@ -349,7 +349,7 @@ function generate() {
   const ein = m.ein?.trim();
   const date = m.date?.trim() || new Date().toLocaleDateString();
   let html = `
-    <h1>${escapeHtml(name)} — Continuity Document</h1>
+    <h1>${escapeHtml(name)}, Continuity Document</h1>
     <p class="biz-line">
       ${[owner && `Owner: ${escapeHtml(owner)}`, addr && escapeHtml(addr), phone && escapeHtml(phone), ein && `EIN: ${escapeHtml(ein)}`].filter(Boolean).join(' · ')}
     </p>
@@ -372,7 +372,7 @@ function generate() {
 function generateMarkdown() {
   const m = state.meta;
   const name = m.name?.trim() || 'This business';
-  let md = `# ${name} — Continuity Document\n\n`;
+  let md = `# ${name}, Continuity Document\n\n`;
   const sub = [m.owner && `Owner: ${m.owner}`, m.addr, m.phone, m.ein && `EIN: ${m.ein}`].filter(Boolean).join(' · ');
   if (sub) md += `*${sub}*\n\n`;
   md += `_Prepared ${m.date || new Date().toLocaleDateString()}. If you're reading this, the owner can't be here._\n\n---\n\n`;
